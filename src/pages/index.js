@@ -2,6 +2,8 @@ import React from "react";
 import { graphql } from "gatsby";
 import Hero from "../components/Hero";
 import Layout from "../components/layout";
+import Advertiser from "../components/Advertiser";
+import ServicesDisplay from "../components/ServicesDisplay";
 
 import Image from "../components/image";
 
@@ -11,24 +13,54 @@ const IndexPage = props => (
     <Layout>
         <SEO title="Home" />
         <Hero />
+        <Advertiser />
+        <ServicesDisplay imgs={props.data} />
     </Layout>
 );
 
 export default IndexPage;
 
-export const imgQuery = graphql`
+export const galaryImageQuery = graphql`
     query {
-        img: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+        one: file(relativePath: { eq: "1.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 300) {
-                    ...GatsbyImageSharpFluid
+                fixed(width: 350, height: 255) {
+                    ...GatsbyImageSharpFixed
                 }
             }
         }
-        hero: file(relativePath: { eq: "hero.jpg" }) {
+        two: file(relativePath: { eq: "8.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 2000) {
-                    ...GatsbyImageSharpFluid
+                fixed(width: 350, height: 255) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+        three: file(relativePath: { eq: "5.jpg" }) {
+            childImageSharp {
+                fixed(width: 350, height: 255) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+        four: file(relativePath: { eq: "9.jpg" }) {
+            childImageSharp {
+                fixed(width: 350, height: 255) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+        five: file(relativePath: { eq: "6.jpg" }) {
+            childImageSharp {
+                fixed(width: 350, height: 255) {
+                    ...GatsbyImageSharpFixed
+                }
+            }
+        }
+        six: file(relativePath: { eq: "388.jpg" }) {
+            childImageSharp {
+                fixed(width: 350, height: 255) {
+                    ...GatsbyImageSharpFixed
                 }
             }
         }

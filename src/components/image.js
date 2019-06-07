@@ -14,7 +14,7 @@ import Img from "gatsby-image";
  */
 
 const Image = ({ data }) => {
-    const img = <Img fluid={data} />;
+    const img = <Img fixed={data} />;
 
     return img;
 };
