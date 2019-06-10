@@ -5,49 +5,48 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
-import React from "react";
-import PropTypes from "prop-types";
-import { StaticQuery, graphql } from "gatsby";
+import React from "react"
+import PropTypes from "prop-types"
+import { StaticQuery, graphql } from "gatsby"
 
-import "../index.css";
+import "../index.css"
 
-import Navbar from "./Navbar";
+import Footer from "./Footer"
+import Navbar from "./Navbar"
 
 const Layout = ({ children }) => (
-    <StaticQuery
-        query={graphql`
-            query SiteTitleQuery {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
-            }
-        `}
-        render={data => (
-            <>
-                <Navbar />
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Navbar />
 
-                <div
-                    style={{
-                        margin: `0 auto`,
-                        maxWidth: `100vw`,
-                    }}
-                >
-                    <main>{children}</main>
-                    <footer>
-                        STR Eletrodomésticos - Copyright ©{" "}
-                        {new Date().getFullYear()} - Todos os direitos
-                        reservados
-                    </footer>
-                </div>
-            </>
-        )}
-    />
-);
+        <div
+          style={{
+            margin: `0 auto`,
+            maxWidth: `100vw`,
+          }}
+        >
+          <main>{children}</main>
+          <Footer
+            copyrightText={`STR Eletrodomésticos - Copyright © ${new Date().getFullYear()} - Todos os direitos reservados`}
+          />
+        </div>
+      </>
+    )}
+  />
+)
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired,
-};
+  children: PropTypes.node.isRequired,
+}
 
-export default Layout;
+export default Layout
